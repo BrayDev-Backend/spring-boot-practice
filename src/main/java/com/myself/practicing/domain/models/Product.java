@@ -2,12 +2,12 @@ package com.myself.practicing.domain.models;
 
 public class Product {
 
-    private int id;
+    private Long id;
     private String name;
     private int amount;
     private String category;
 
-    public Product(int id, String name, int amount, String category)
+    public Product(Long id, String name, int amount, String category)
     {
         this.id = id;
         this.name = name;
@@ -15,7 +15,7 @@ public class Product {
         this.category = category;
     }
 
-    public int getId()
+    public Long getId()
     {
         return id;
     }
