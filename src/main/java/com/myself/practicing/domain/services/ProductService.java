@@ -6,34 +6,38 @@ import org.springframework.stereotype.Service;
 
 import com.myself.practicing.domain.DTOs.ProductDTO;
 import com.myself.practicing.domain.models.Product;
-import com.myself.practicing.infrastructure.repositories.InMemoryProductRepository;
+import com.myself.practicing.domain.repositories.ProductRepository;
 
 @Service 
-public class ProductService{
+public class ProductService {
 
-    private InMemoryProductRepository repository;
+    private final ProductRepository repository;
 
-    public List<Product> getAll()
+    public ProductService(ProductRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Product> getAllService()
     {
         return repository.findAllProducts();
     }
 
-    public Product getProductById(Long id)
+    public Product getByIdService(Long id)
     {
         return repository.findProductById(id);
     }
 
-    public Product postProduct(ProductDTO product)
+    public Product postService(ProductDTO product)
     {
         return repository.createProduct(product);
     }
 
-    public Product patchProduct(Long id, ProductDTO product)
+    public Product putService(Long id, ProductDTO product)
     {
         return repository.updateProduct(id, product);
     }
 
-    public void deleteProduct(Long id)
+    public void deleteService(Long id)
     {
         repository.deleteProduct(id);
     }
